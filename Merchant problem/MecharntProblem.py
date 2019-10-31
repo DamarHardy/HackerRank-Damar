@@ -13,12 +13,10 @@ def sockMerchant(n, ar):
     ar.sort()
     i = 0
     count = 0
-    print ar
     while i < n:
         if i+1 < n:
             if ar[i]==ar[i+1] and (i+1)<n:
                 count = count +1
-                print count
                 i=i+2
             else:
                 i=i+1
@@ -33,7 +31,7 @@ if __name__ == '__main__':
     ar = map(int, raw_input().rstrip().split())
 
     result = sockMerchant(n,ar)
-    # print(result)
+    print(result)
     fptr.write(str(result)+'\n')
 
     fptr.close()
