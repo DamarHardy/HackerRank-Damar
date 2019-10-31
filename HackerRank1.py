@@ -21,11 +21,16 @@ def sockMerchant(n, ar):
         for i in range(0,len(ar),1):
             for x in range(i+1,len(ar),1):
                 prevlen = len(ar)
+                print (ar[i],ar[x])
+                print prevlen
                 if ar[i]==ar[x]:
+                    print ("true")
                     count = count + 1
                     del ar[x]
                     del ar[i]
                     new = len(ar)
+                    print ar
+                    print new
                     break
                 else:
                     continue
@@ -40,7 +45,7 @@ if __name__ == '__main__':
     ar = map(int, raw_input().rstrip().split())
 
     result = sockMerchant(n,ar)
-    print(result)
+    # print(result)
     fptr.write(str(result)+'\n')
 
     fptr.close()
