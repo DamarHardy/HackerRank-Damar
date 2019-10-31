@@ -11,7 +11,19 @@ from __builtin__ import str
 
 def sockMerchant(n, ar):
     ar.sort()
+    i = 0
+    count = 0
     print ar
+    while i < n:
+        if i+1 < n:
+            if ar[i]==ar[i+1] and (i+1)<n:
+                count = count +1
+                print count
+                i=i+2
+            else:
+                i=i+1
+        else:
+            break
     return count
 
 if __name__ == '__main__':
