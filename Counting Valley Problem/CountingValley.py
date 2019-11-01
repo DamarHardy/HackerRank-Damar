@@ -7,15 +7,36 @@ from __builtin__ import str
 
 # Complete the countingValleys function below.
 def countingValleys(n, s):
-    count = 0
+    gunung = False
+    valley = False
     i = 0
-    s.lower().split()
+    count = 0
+    gunungcount=0
+    valleycount=0
+    # print n
+    # print s
     while i < n:
-        if s[i]==u:
+        # print (s[i])
+        if s[i]=='U':
             count = count+1
-        elif s[i]==d:
+        elif s[i]=='D':
             count = count-1
-    pass
+
+        if count != 0 and gunung==False and valley==False:
+            if s[i] == 'U':
+                gunung = True
+            elif s[i]=='D':
+                valley = True
+        elif count == 0:
+            if gunung:
+                gunungcount = gunungcount+1
+                gunung = False
+            elif valley:
+                valleycount = valleycount+1
+                valley = False
+        i = i+1
+    return valleycount
+
 if __name__ == '__main__':
     os.environ['OUTPUT_PATH'] = 'OUTPUT.txt'
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -25,6 +46,7 @@ if __name__ == '__main__':
     s = raw_input()
 
     result = countingValleys(n, s)
+    print(result)
 
     fptr.write(str(result) + '\n')
 
